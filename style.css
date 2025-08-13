@@ -1,0 +1,10 @@
+* {
+    border: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+}
+
+body{
+    background-color: black;
+}
