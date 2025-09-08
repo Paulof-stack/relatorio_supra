@@ -1,19 +1,175 @@
 <!DOCTYPE html>
-<html lang="br">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="/imgs/FOLHA.png">
-    <link rel="stylesheet" href="style.css">
-    <title>Relatórios Supra</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" type="image/png" href="/imagens/FOLHA.png">
+  <title>Relatórios Supra – Menu</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Sacramento&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg-1:#1c5a28;
+      --bg-2:#7b7b22;
+      --button:#e8f0d8;
+      --button-text:#2a3b2a;
+      --accent:#d5e5bd;
+      --shadow: rgba(0,0,0,.35);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
+      color:#fff;
+      background: radial-gradient(1200px 800px at 15% 85%, #135225 0%, #13522500 60%),
+                  linear-gradient(160deg, var(--bg-1) 0%, #2f6926 40%, var(--bg-2) 100%);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      overflow:hidden;
+    }
+
+    .wrap{
+      width:min(420px, 92vw);
+      padding:28px 22px 36px;
+      position:relative;
+    }
+
+    /* Title */
+    h1{
+      margin:0 0 22px;
+      line-height:1.1;
+      font-size: clamp(26px, 4.8vw, 38px);
+      letter-spacing:.5px;
+      text-transform:uppercase;
+      font-weight:700;
+    }
+    h1 .brand{
+      font-family:"Halimun", cursive;
+      text-transform:none;
+      font-weight:200;
+      font-size: 0.7em;
+      margin-left:.25ch;
+      color:#f1f6e6;
+      filter: drop-shadow(0 1px 0 rgba(0,0,0,.15));
+    }
+
+    /* Buttons list */
+    .menu{
+      display:grid;
+      gap:18px;
+      margin-top:10px;
+    }
+
+    .btn{
+      --pad-y:18px;
+      --pad-x:28px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding: var(--pad-y) var(--pad-x);
+      background: var(--button);
+      color: var(--button-text);
+      text-decoration:none;
+      font-weight:700;
+      letter-spacing:.6px;
+      border-radius: 999px;
+      box-shadow:
+        0 14px 24px -12px var(--shadow),
+        inset 0 0 0 1px rgba(0,0,0,.05);
+      position:relative;
+      overflow:hidden;
+      isolation:isolate;
+      transition: transform .2s ease, box-shadow .25s ease, filter .25s ease;
+    }
+
+    .btn::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background: radial-gradient(60% 120% at 50% 0, rgba(255,255,255,.35), transparent 60%);
+      opacity:.35;
+      z-index:-1;
+      transition: opacity .25s ease;
+    }
+
+    .btn:hover{
+      transform: translateY(-2px);
+      box-shadow:
+        0 18px 28px -12px var(--shadow),
+        0 0 0 2px rgba(255,255,255,.06) inset;
+      filter: saturate(1.05);
+    }
+    .btn:active{ transform: translateY(0) scale(.99); }
+
+    /* Subtle ripple on hover */
+    .btn span{
+      position:relative;
+      z-index:2;
+    }
+
+    /* decorative dots similar to the reference */
+    .dots{
+      --size: 64px;
+      position:absolute;
+      width:var(--size);
+      height:var(--size);
+      background:
+        radial-gradient(circle at 4px 4px, rgba(255,255,255,.22) 2px, transparent 2.5px);
+      background-size: 16px 16px;
+      opacity:.35;
+      filter: blur(.2px);
+      animation: float 8s ease-in-out infinite alternate;
+      pointer-events:none;
+    }
+    .dots.d1{ top: 118px; right: 10px; --size: 56px; animation-delay:-1s; }
+    .dots.d2{ bottom: 96px; left: 16px; --size: 72px; animation-delay:-2.2s; }
+    .dots.d3{ bottom: 82px; right: 18px; --size: 56px; animation-delay:-3.2s; opacity:.28; }
+
+    @keyframes float{
+      from{ transform:translateY(-6px) }
+      to{ transform:translateY(6px) }
+    }
+
+    /* Focus style for keyboard users */
+    .btn:focus-visible{
+      outline: none;
+      box-shadow:
+        0 18px 28px -12px var(--shadow),
+        0 0 0 3px rgba(255,255,255,.15),
+        inset 0 0 0 1px rgba(0,0,0,.05);
+    }
+
+    footer{
+      margin-top:22px;
+      text-align:center;
+      font-size:.85rem;
+      opacity:.8;
+    }
+  </style>
 </head>
 <body>
-   <iframe width="80%" height="650" src="https://lookerstudio.google.com/embed/reporting/cc6f1703-47be-41ee-bec2-93e2502af0b9/page/2hWUF" frameborder="0" style="border:0" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
-   <iframe width="80%" height="650" src="https://lookerstudio.google.com/embed/reporting/82f88e0c-815b-4251-b55a-a224e43c3b4a/page/PgeUF" frameborder="0" style="border:0" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
-   <iframe width="80%" height="650" src="https://lookerstudio.google.com/embed/reporting/fd106742-21fe-4543-b290-63030ee9f1c0/page/snRUF" frameborder="0" style="border:0" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
-   <iframe width="80%" height="650" src="https://lookerstudio.google.com/embed/reporting/7905c09f-ed31-464a-a21a-36fd7082b564/page/0cQUF" frameborder="0" style="border:0" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
-   <iframe width="80%" height="650" src="https://lookerstudio.google.com/embed/reporting/774dd24c-fd5a-4217-9814-d801db8a32f6/page/0cQUF" frameborder="0" style="border:0" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
-   <iframe width="80%" height="650" src="https://lookerstudio.google.com/embed/reporting/922a7f51-8610-465f-ac90-77b136970bd9/page/qDXVF" frameborder="0" style="border:0" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
-   
+  <div class="wrap">
+    <h1>RELATÓRIOS <span class="brand">Supra</span></h1>
+
+    <nav class="menu">
+      <a class="btn" href="https://lookerstudio.google.com/reporting/cc6f1703-47be-41ee-bec2-93e2502af0b9/page/2hWUF" target="_blank"><span>IMPRESSÃO</span></a>
+      <a class="btn" href="https://lookerstudio.google.com/reporting/82f88e0c-815b-4251-b55a-a224e43c3b4a/page/PgeUF" target="_blank"><span>RODANDO HOJE</span></a>
+      <a class="btn" href="https://lookerstudio.google.com/reporting/fd106742-21fe-4543-b290-63030ee9f1c0/page/snRUF" target="_blank"><span>CUSTO ESTAMPARIA</span></a>
+      <a class="btn" href="https://lookerstudio.google.com/reporting/922a7f51-8610-465f-ac90-77b136970bd9/page/qDXVF" target="_blank"><span>FRETE SANTA CRUZ</span></a>
+      <a class="btn" href="https://lookerstudio.google.com/reporting/7905c09f-ed31-464a-a21a-36fd7082b564/page/0cQUF" target="_blank"><span>DESENHOS STUDIOS</span></a>
+      <a class="btn" href="https://lookerstudio.google.com/reporting/774dd24c-fd5a-4217-9814-d801db8a32f6/page/0cQUF" target="_blank"><span>VENDAS REPRESENTANTES</span></a>
+    </nav>
+
+    <div class="dots d1"></div>
+    <div class="dots d2"></div>
+    <div class="dots d3"></div>
+
+    <footer>
+      <small>© Supra Estamparia</small>
+    </footer>
+  </div>
 </body>
 </html>
